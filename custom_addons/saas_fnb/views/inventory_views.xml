@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <record id="view_fnb_inventory_tree" model="ir.ui.view">
-        <field name="name">fnb.inventory.tree</field>
-        <field name="model">fnb.inventory</field>
-        <field name="arch" type="xml">
-            <tree string="Daftar Inventaris">
-                <field name="name"/>
-                <field name="quantity"/>
-            </tree>
-        </field>
-    </record>
 
     <record id="view_fnb_inventory_form" model="ir.ui.view">
         <field name="name">fnb.inventory.form</field>
@@ -17,12 +7,77 @@
         <field name="arch" type="xml">
             <form string="Form Inventaris">
                 <sheet>
+                    <widget name="web_ribbon" title="Stok Habis" bg_color="bg-danger" invisible="stock_status != 'empty'"/>
+                    <widget name="web_ribbon" title="Stok Menipis" bg_color="bg-warning" invisible="stock_status != 'low'"/>
+                    
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" string="Nama Bahan Baku"/>
+                        <h1><field name="name" placeholder="Misal: Biji Kopi Arabika"/></h1>
+                    </div>
+                    
                     <group>
-                        <field name="name" placeholder="Contoh: Biji Kopi Arabika"/>
-                        <field name="quantity"/>
+                        <group string="Informasi Stok">
+                            <label for="quantity" string="Stok Tersedia"/>
+                            <div class="o_row">
+                                <field name="quantity"/>
+                                <span> </span>
+                                <field name="uom"/>
+                            </div>
+                            <field name="min_stock"/>
+                            <field name="stock_status" invisible="1"/> </group>
+                        <group string="Informasi Tambahan">
+                            <field name="category"/>
+                            <field name="cost_price" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                        </group>
                     </group>
                 </sheet>
             </form>
+        </field>
+    </record>
+
+    <record id="view_fnb_inventory_kanban" model="ir.ui.view">
+        <field name="name">fnb.inventory.kanban</field>
+        <field name="model">fnb.inventory</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="category">
+                <field name="name"/>
+                <field name="quantity"/>
+                <field name="uom"/>
+                <field name="stock_status"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title" style="font-size: 16px;">
+                                    <field name="name"/>
+                                </strong>
+                                <div class="mt-2">
+                                    <span style="font-size: 14px;">Stok: <field name="quantity"/> <field name="uom"/></span>
+                                </div>
+                                <div class="mt-2">
+                                    <span t-if="record.stock_status.raw_value == 'safe'" class="badge rounded-pill text-bg-success">Aman</span>
+                                    <span t-if="record.stock_status.raw_value == 'low'" class="badge rounded-pill text-bg-warning">Menipis</span>
+                                    <span t-if="record.stock_status.raw_value == 'empty'" class="badge rounded-pill text-bg-danger">Habis</span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_fnb_inventory_tree" model="ir.ui.view">
+        <field name="name">fnb.inventory.tree</field>
+        <field name="model">fnb.inventory</field>
+        <field name="arch" type="xml">
+            <tree string="Daftar Inventaris" decoration-danger="stock_status == 'empty'" decoration-warning="stock_status == 'low'">
+                <field name="name"/>
+                <field name="category"/>
+                <field name="quantity"/>
+                <field name="uom"/>
+                <field name="stock_status" widget="badge" decoration-success="stock_status == 'safe'" decoration-warning="stock_status == 'low'" decoration-danger="stock_status == 'empty'"/>
+            </tree>
         </field>
     </record>
 </odoo>

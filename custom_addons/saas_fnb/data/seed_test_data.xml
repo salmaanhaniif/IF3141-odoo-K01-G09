@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+    <!-- =========================
+         INVENTORY SEED DATA
+    ========================== -->
+    <record id="inv_chicken_breast" model="fnb.inventory">
+        <field name="name">Dada Ayam Fillet</field>
+        <field name="category">raw</field>
+        <field name="quantity">35</field>
+        <field name="uom">kg</field>
+        <field name="cost_price">68000</field>
+        <field name="min_stock">8</field>
+    </record>
+
+    <record id="inv_beef_slice" model="fnb.inventory">
+        <field name="name">Daging Sapi Iris</field>
+        <field name="category">raw</field>
+        <field name="quantity">18</field>
+        <field name="uom">kg</field>
+        <field name="cost_price">120000</field>
+        <field name="min_stock">5</field>
+    </record>
+
+    <record id="inv_rice" model="fnb.inventory">
+        <field name="name">Beras Premium</field>
+        <field name="category">dry</field>
+        <field name="quantity">60</field>
+        <field name="uom">kg</field>
+        <field name="cost_price">15500</field>
+        <field name="min_stock">12</field>
+    </record>
+
+    <record id="inv_noodle" model="fnb.inventory">
+        <field name="name">Mie Telur</field>
+        <field name="category">dry</field>
+        <field name="quantity">22</field>
+        <field name="uom">kg</field>
+        <field name="cost_price">24000</field>
+        <field name="min_stock">6</field>
+    </record>
+
+    <record id="inv_egg" model="fnb.inventory">
+        <field name="name">Telur Ayam</field>
+        <field name="category">raw</field>
+        <field name="quantity">220</field>
+        <field name="uom">pcs</field>
+        <field name="cost_price">2400</field>
+        <field name="min_stock">60</field>
+    </record>
+
+    <record id="inv_milk" model="fnb.inventory">
+        <field name="name">Susu UHT</field>
+        <field name="category">dry</field>
+        <field name="quantity">28</field>
+        <field name="uom">l</field>
+        <field name="cost_price">18000</field>
+        <field name="min_stock">8</field>
+    </record>
+
+    <record id="inv_coffee_beans" model="fnb.inventory">
+        <field name="name">Biji Kopi Arabika</field>
+        <field name="category">dry</field>
+        <field name="quantity">10</field>
+        <field name="uom">kg</field>
+        <field name="cost_price">145000</field>
+        <field name="min_stock">3</field>
+    </record>
+
+    <record id="inv_sugar" model="fnb.inventory">
+        <field name="name">Gula Pasir</field>
+        <field name="category">dry</field>
+        <field name="quantity">30</field>
+        <field name="uom">kg</field>
+        <field name="cost_price">15000</field>
+        <field name="min_stock">8</field>
+    </record>
+
+    <record id="inv_chili" model="fnb.inventory">
+        <field name="name">Cabai Merah</field>
+        <field name="category">raw</field>
+        <field name="quantity">12</field>
+        <field name="uom">kg</field>
+        <field name="cost_price">48000</field>
+        <field name="min_stock">4</field>
+    </record>
+
+    <record id="inv_tofu" model="fnb.inventory">
+        <field name="name">Tahu Putih</field>
+        <field name="category">raw</field>
+        <field name="quantity">90</field>
+        <field name="uom">pcs</field>
+        <field name="cost_price">1700</field>
+        <field name="min_stock">20</field>
+    </record>
+
+    <record id="inv_cup_16oz" model="fnb.inventory">
+        <field name="name">Cup Plastik 16oz</field>
+        <field name="category">packaging</field>
+        <field name="quantity">500</field>
+        <field name="uom">pcs</field>
+        <field name="cost_price">650</field>
+        <field name="min_stock">120</field>
+    </record>
+
+    <record id="inv_plastic_bag" model="fnb.inventory">
+        <field name="name">Kantong Plastik</field>
+        <field name="category">packaging</field>
+        <field name="quantity">420</field>
+        <field name="uom">pcs</field>
+        <field name="cost_price">320</field>
+        <field name="min_stock">100</field>
+    </record>
+
+    <!-- =========================
+         MENU SEED DATA
+    ========================== -->
+    <record id="menu_nasi_ayam_geprek" model="fnb.menu">
+        <field name="name">Nasi Ayam Geprek</field>
+        <field name="price">28000</field>
+        <field name="category">food</field>
+        <field name="is_available">1</field>
+        <field name="description">Ayam fillet crispy dengan sambal geprek.</field>
+    </record>
+
+    <record id="menu_nasi_beef_teriyaki" model="fnb.menu">
+        <field name="name">Nasi Beef Teriyaki</field>
+        <field name="price">36000</field>
+        <field name="category">food</field>
+        <field name="is_available">1</field>
+        <field name="description">Irisan sapi teriyaki dengan nasi hangat.</field>
+    </record>
+
+    <record id="menu_mie_goreng_spesial" model="fnb.menu">
+        <field name="name">Mie Goreng Spesial</field>
+        <field name="price">26000</field>
+        <field name="category">food</field>
+        <field name="is_available">1</field>
+        <field name="description">Mie telur dengan topping ayam dan telur.</field>
+    </record>
+
+    <record id="menu_tahu_crispy" model="fnb.menu">
+        <field name="name">Tahu Crispy</field>
+        <field name="price">15000</field>
+        <field name="category">snack</field>
+        <field name="is_available">1</field>
+        <field name="description">Tahu goreng renyah dengan saus sambal.</field>
+    </record>
+
+    <record id="menu_es_kopi_susu" model="fnb.menu">
+        <field name="name">Es Kopi Susu</field>
+        <field name="price">22000</field>
+        <field name="category">beverage</field>
+        <field name="is_available">1</field>
+        <field name="description">Kopi susu dingin signature.</field>
+    </record>
+
+    <record id="menu_caffe_latte" model="fnb.menu">
+        <field name="name">Caffe Latte</field>
+        <field name="price">24000</field>
+        <field name="category">beverage</field>
+        <field name="is_available">1</field>
+        <field name="description">Espresso, susu, dan foam lembut.</field>
+    </record>
+
+    <!-- =========================
+         RECIPE / BOM SEED DATA
+    ========================== -->
+    <record id="recipe_geprek_ayam" model="fnb.recipe.line">
+        <field name="menu_id" ref="menu_nasi_ayam_geprek"/>
+        <field name="inventory_id" ref="inv_chicken_breast"/>
+        <field name="quantity">0.18</field>
+    </record>
+    <record id="recipe_geprek_rice" model="fnb.recipe.line">
+        <field name="menu_id" ref="menu_nasi_ayam_geprek"/>
+        <field name="inventory_id" ref="inv_rice"/>
+        <field name="quantity">0.12</field>
+    </record>
+    <record id="recipe_geprek_chili" model="fnb.recipe.line">
+        <field name="menu_id" ref="menu_nasi_ayam_geprek"/>
+        <field name="inventory_id" ref="inv_chili"/>
+        <field name="quantity">0.03</field>
+    </record>
+    <record id="recipe_geprek_bag" model="fnb.recipe.line">
+        <field name="menu_id" ref="menu_nasi_ayam_geprek"/>
+        <field name="inventory_id" ref="inv_plastic_bag"/>
+        <field name="quantity">1</field>
+    </record>
+
+    <record id="recipe_beef_beef" model="fnb.recipe.line">
+        <field name="menu_id" ref="menu_nasi_beef_teriyaki"/>
+        <field name="inventory_id" ref="inv_beef_slice"/>
+        <field name="quantity">0.16</field>
+    </record>
+    <record id="recipe_beef_rice" model="fnb.recipe.line">
+        <field name="menu_id" ref="menu_nasi_beef_teriyaki"/>
+        <field name="inventory_id" ref="inv_rice"/>
+        <field name="quantity">0.12</field>
+    </record>
+    <record id="recipe_beef_sugar" model="fnb.recipe.line">
+        <field name="menu_id" ref="menu_nasi_beef_teriyaki"/>
+        <field name="inventory_id" ref="inv_sugar"/>
+        <field name="quantity">0.01</field>
+    </record>
+    <record id="recipe_beef_bag" model="fnb.recipe.line">
+        <field name="menu_id" ref="menu_nasi_beef_teriyaki"/>
+        <field name="inventory_id" ref="inv_plastic_bag"/>
+        <field name="quantity">1</field>
+    </record>
+
+    <record id="recipe_mie_noodle" model="fnb.recipe.line">
+        <field name="menu_id" ref="menu_mie_goreng_spesial"/>
+        <field name="inventory_id" ref="inv_noodle"/>
+        <field name="quantity">0.14</field>
+    </record>
+    <record id="recipe_mie_egg" model="fnb.recipe.line">
+        <field name="menu_id" ref="menu_mie_goreng_spesial"/>
+        <field name="inventory_id" ref="inv_egg"/>
+        <field name="quantity">1</field>
+    </record>
+    <record id="recipe_mie_chicken" model="fnb.recipe.line">
+        <field name="menu_id" ref="menu_mie_goreng_spesial"/>
+        <field name="inventory_id" ref="inv_chicken_breast"/>
+        <field name="quantity">0.06</field>
+    </record>
+    <record id="recipe_mie_bag" model="fnb.recipe.line">
+        <field name="menu_id" ref="menu_mie_goreng_spesial"/>
+        <field name="inventory_id" ref="inv_plastic_bag"/>
+        <field name="quantity">1</field>
+    </record>
+
+    <record id="recipe_tahu_tofu" model="fnb.recipe.line">
+        <field name="menu_id" ref="menu_tahu_crispy"/>
+        <field name="inventory_id" ref="inv_tofu"/>
+        <field name="quantity">4</field>
+    </record>
+    <record id="recipe_tahu_chili" model="fnb.recipe.line">
+        <field name="menu_id" ref="menu_tahu_crispy"/>
+        <field name="inventory_id" ref="inv_chili"/>
+        <field name="quantity">0.01</field>
+    </record>
+    <record id="recipe_tahu_bag" model="fnb.recipe.line">
+        <field name="menu_id" ref="menu_tahu_crispy"/>
+        <field name="inventory_id" ref="inv_plastic_bag"/>
+        <field name="quantity">1</field>
+    </record>
+
+    <record id="recipe_eskopi_beans" model="fnb.recipe.line">
+        <field name="menu_id" ref="menu_es_kopi_susu"/>
+        <field name="inventory_id" ref="inv_coffee_beans"/>
+        <field name="quantity">0.018</field>
+    </record>
+    <record id="recipe_eskopi_milk" model="fnb.recipe.line">
+        <field name="menu_id" ref="menu_es_kopi_susu"/>
+        <field name="inventory_id" ref="inv_milk"/>
+        <field name="quantity">0.16</field>
+    </record>
+    <record id="recipe_eskopi_sugar" model="fnb.recipe.line">
+        <field name="menu_id" ref="menu_es_kopi_susu"/>
+        <field name="inventory_id" ref="inv_sugar"/>
+        <field name="quantity">0.01</field>
+    </record>
+    <record id="recipe_eskopi_cup" model="fnb.recipe.line">
+        <field name="menu_id" ref="menu_es_kopi_susu"/>
+        <field name="inventory_id" ref="inv_cup_16oz"/>
+        <field name="quantity">1</field>
+    </record>
+
+    <record id="recipe_latte_beans" model="fnb.recipe.line">
+        <field name="menu_id" ref="menu_caffe_latte"/>
+        <field name="inventory_id" ref="inv_coffee_beans"/>
+        <field name="quantity">0.018</field>
+    </record>
+    <record id="recipe_latte_milk" model="fnb.recipe.line">
+        <field name="menu_id" ref="menu_caffe_latte"/>
+        <field name="inventory_id" ref="inv_milk"/>
+        <field name="quantity">0.2</field>
+    </record>
+    <record id="recipe_latte_cup" model="fnb.recipe.line">
+        <field name="menu_id" ref="menu_caffe_latte"/>
+        <field name="inventory_id" ref="inv_cup_16oz"/>
+        <field name="quantity">1</field>
+    </record>
+
+    <!-- =========================
+         POS ORDER SEED DATA
+    ========================== -->
+    <record id="order_pos_001" model="fnb.order">
+        <field name="customer_name">Walk-in Customer A</field>
+        <field name="order_date">2026-04-20 11:15:00</field>
+        <field name="status">done</field>
+        <field name="payment_status">paid</field>
+    </record>
+
+    <record id="order_pos_002" model="fnb.order">
+        <field name="customer_name">Walk-in Customer B</field>
+        <field name="order_date">2026-04-20 12:05:00</field>
+        <field name="status">kitchen</field>
+        <field name="payment_status">unpaid</field>
+    </record>
+
+    <record id="order_pos_003" model="fnb.order">
+        <field name="customer_name">Online Delivery C</field>
+        <field name="order_date">2026-04-20 13:40:00</field>
+        <field name="status">draft</field>
+        <field name="payment_status">unpaid</field>
+    </record>
+
+    <record id="order_pos_004" model="fnb.order">
+        <field name="customer_name">Corporate D</field>
+        <field name="order_date">2026-04-20 15:10:00</field>
+        <field name="status">done</field>
+        <field name="payment_status">paid</field>
+    </record>
+
+    <!-- POS ORDER LINES -->
+    <record id="order_line_pos_001_1" model="fnb.order.line">
+        <field name="order_id" ref="order_pos_001"/>
+        <field name="menu_id" ref="menu_nasi_ayam_geprek"/>
+        <field name="quantity">2</field>
+    </record>
+    <record id="order_line_pos_001_2" model="fnb.order.line">
+        <field name="order_id" ref="order_pos_001"/>
+        <field name="menu_id" ref="menu_es_kopi_susu"/>
+        <field name="quantity">2</field>
+    </record>
+
+    <record id="order_line_pos_002_1" model="fnb.order.line">
+        <field name="order_id" ref="order_pos_002"/>
+        <field name="menu_id" ref="menu_nasi_beef_teriyaki"/>
+        <field name="quantity">1</field>
+    </record>
+    <record id="order_line_pos_002_2" model="fnb.order.line">
+        <field name="order_id" ref="order_pos_002"/>
+        <field name="menu_id" ref="menu_caffe_latte"/>
+        <field name="quantity">1</field>
+    </record>
+
+    <record id="order_line_pos_003_1" model="fnb.order.line">
+        <field name="order_id" ref="order_pos_003"/>
+        <field name="menu_id" ref="menu_mie_goreng_spesial"/>
+        <field name="quantity">1</field>
+    </record>
+    <record id="order_line_pos_003_2" model="fnb.order.line">
+        <field name="order_id" ref="order_pos_003"/>
+        <field name="menu_id" ref="menu_tahu_crispy"/>
+        <field name="quantity">2</field>
+    </record>
+
+    <record id="order_line_pos_004_1" model="fnb.order.line">
+        <field name="order_id" ref="order_pos_004"/>
+        <field name="menu_id" ref="menu_nasi_ayam_geprek"/>
+        <field name="quantity">3</field>
+    </record>
+    <record id="order_line_pos_004_2" model="fnb.order.line">
+        <field name="order_id" ref="order_pos_004"/>
+        <field name="menu_id" ref="menu_es_kopi_susu"/>
+        <field name="quantity">3</field>
+    </record>
+</odoo>

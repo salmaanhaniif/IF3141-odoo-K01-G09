@@ -57,11 +57,17 @@
                     </group>
 
                     <notebook>
+                        <page string="Resep (Bill of Materials)">
+                            <field name="recipe_line_ids">
+                                <tree editable="bottom">
+                                    <field name="inventory_id" options="{'no_create': True, 'no_create_edit': True}"/>
+                                    <field name="quantity"/>
+                                    <field name="uom"/>
+                                </tree>
+                            </field>
+                        </page>
                         <page string="Deskripsi &amp; Detail">
                             <field name="description" placeholder="Ceritakan tentang menu ini..."/>
-                        </page>
-                        <page string="Resep (Integrasi Inventaris)">
-                            <p class="text-muted">Di sini nanti kita akan meletakkan tabel resep yang memotong stok bahan baku secara otomatis.</p>
                         </page>
                     </notebook>
                 </sheet>

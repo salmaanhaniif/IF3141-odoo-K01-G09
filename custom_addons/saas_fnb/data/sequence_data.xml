@@ -8,4 +8,13 @@
         <field name="number_next">1</field>
         <field name="number_increment">1</field>
     </record>
+
+    <record id="seq_fnb_reservation" model="ir.sequence">
+        <field name="name">Kode Reservasi FNB</field>
+        <field name="code">fnb.reservation</field>
+        <field name="prefix">RSV/%(year)s/%(month)s/</field>
+        <field name="padding">4</field>
+        <field name="number_next">1</field>
+        <field name="number_increment">1</field>
+    </record>
 </odoo>

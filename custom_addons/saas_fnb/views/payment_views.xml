@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_fnb_payment_form" model="ir.ui.view">
+        <field name="name">fnb.payment.form</field>
+        <field name="model">fnb.payment</field>
+        <field name="arch" type="xml">
+            <form string="Pembayaran Digital">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="order_id"/>
+                            <field name="amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                        </group>
+                        <!-- <group>
+                            <field name="payment_method" widget="radio"/>
+                            <field name="reference_number" placeholder="Misal: ID Transaksi GoPay"/>
+                        </group> -->
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_confirm_payment" string="Konfirmasi Pembayaran" type="object" class="btn-success"/>
+                    <button string="Batal" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
