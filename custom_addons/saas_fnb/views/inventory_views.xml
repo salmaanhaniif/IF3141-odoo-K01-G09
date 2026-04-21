@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_fnb_inventory_tree" model="ir.ui.view">
+        <field name="name">fnb.inventory.tree</field>
+        <field name="model">fnb.inventory</field>
+        <field name="arch" type="xml">
+            <tree string="Daftar Inventaris">
+                <field name="name"/>
+                <field name="quantity"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_fnb_inventory_form" model="ir.ui.view">
+        <field name="name">fnb.inventory.form</field>
+        <field name="model">fnb.inventory</field>
+        <field name="arch" type="xml">
+            <form string="Form Inventaris">
+                <sheet>
+                    <group>
+                        <field name="name" placeholder="Contoh: Biji Kopi Arabika"/>
+                        <field name="quantity"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

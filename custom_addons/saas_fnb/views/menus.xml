@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_fnb_inventory" model="ir.actions.act_window">
+        <field name="name">Inventaris Bahan Baku</field>
+        <field name="res_model">fnb.inventory</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_fnb_order" model="ir.actions.act_window">
+        <field name="name">Nota Pemesanan</field>
+        <field name="res_model">fnb.order</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_fnb_complaint" model="ir.actions.act_window">
+        <field name="name">Komplain Pelanggan</field>
+        <field name="res_model">fnb.complaint</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_fnb_menu" model="ir.actions.act_window">
+        <field name="name">Master Menu</field>
+        <field name="res_model">fnb.menu</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <record id="action_fnb_reservation" model="ir.actions.act_window">
+        <field name="name">Reservasi Meja</field>
+        <field name="res_model">fnb.reservation</field>
+        <field name="view_mode">calendar,tree,form</field>
+    </record>
+
+    <menuitem id="menu_fnb_root" name="SaaS F&amp;B" sequence="10"/>
+
+    <menuitem id="menu_fnb_inventory" name="Inventaris" parent="menu_fnb_root" action="action_fnb_inventory" sequence="10"/>
+    <menuitem id="menu_fnb_order" name="Pemesanan (POS)" parent="menu_fnb_root" action="action_fnb_order" sequence="20"/>
+    <menuitem id="menu_fnb_complaint" name="Komplain" parent="menu_fnb_root" action="action_fnb_complaint" sequence="30"/>
+    <menuitem id="menu_fnb_master_menu" name="Master Menu" parent="menu_fnb_root" action="action_fnb_menu" sequence="15"/>
+    <menuitem id="menu_fnb_reservation" name="Reservasi" parent="menu_fnb_root" action="action_fnb_reservation" sequence="25"/>
+</odoo>

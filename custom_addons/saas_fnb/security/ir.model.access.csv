@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_fnb_inventory,fnb.inventory access,model_fnb_inventory,,1,1,1,1
+access_fnb_order,fnb.order access,model_fnb_order,,1,1,1,1
+access_fnb_complaint,fnb.complaint access,model_fnb_complaint,,1,1,1,1
+access_fnb_menu,fnb.menu access,model_fnb_menu,,1,1,1,1
+access_fnb_order_line,fnb.order.line access,model_fnb_order_line,,1,1,1,1
+access_fnb_table,fnb.table access,model_fnb_table,,1,1,1,1
+access_fnb_reservation,fnb.reservation access,model_fnb_reservation,,1,1,1,1

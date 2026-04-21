@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_fnb_menu_kanban" model="ir.ui.view">
+        <field name="name">fnb.menu.kanban</field>
+        <field name="model">fnb.menu</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="id"/>
+                <field name="name"/>
+                <field name="image"/>
+                <field name="price"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_image">
+                                <img t-att-src="kanban_image('fnb.menu', 'image', record.id.raw_value)" alt="Menu"/>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title">
+                                    <field name="name"/>
+                                </strong>
+                                <div>Rp <field name="price"/></div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_fnb_menu_form" model="ir.ui.view">
+        <field name="name">fnb.menu.form</field>
+        <field name="model">fnb.menu</field>
+        <field name="arch" type="xml">
+            <form string="Detail Menu">
+                <sheet>
+                    <widget name="web_ribbon" title="Tersedia" bg_color="bg-success" invisible="is_available == False"/>
+                    <widget name="web_ribbon" title="Habis" bg_color="bg-danger" invisible="is_available == True"/>
+                    
+                    <field name="image" widget="image" class="oe_avatar"/>
+                    
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" string="Nama Menu"/>
+                        <h1>
+                            <field name="name" placeholder="Misal: Kopi Susu Aren"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="category"/>
+                            <field name="price"/>
+                        </group>
+                        <group>
+                            <field name="is_available" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Deskripsi &amp; Detail">
+                            <field name="description" placeholder="Ceritakan tentang menu ini..."/>
+                        </page>
+                        <page string="Resep (Integrasi Inventaris)">
+                            <p class="text-muted">Di sini nanti kita akan meletakkan tabel resep yang memotong stok bahan baku secara otomatis.</p>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

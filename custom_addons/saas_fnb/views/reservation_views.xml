@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_fnb_reservation_calendar" model="ir.ui.view">
+        <field name="name">fnb.reservation.calendar</field>
+        <field name="model">fnb.reservation</field>
+        <field name="arch" type="xml">
+            <calendar string="Jadwal Reservasi" date_start="date_start" date_stop="date_stop" color="table_id" quick_create="0">
+                <field name="customer_name"/>
+                <field name="table_id"/>
+                <field name="number_of_people"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="view_fnb_reservation_form" model="ir.ui.view">
+        <field name="name">fnb.reservation.form</field>
+        <field name="model">fnb.reservation</field>
+        <field name="arch" type="xml">
+            <form string="Detail Reservasi">
+                <header>
+                    <button name="action_confirm" string="Konfirmasi" type="object" class="oe_highlight" invisible="status != 'draft'"/>
+                    <field name="status" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Dikonfirmasi" bg_color="bg-success" invisible="status != 'confirmed'"/>
+                    <div class="oe_title">
+                        <h1><field name="customer_name" placeholder="Nama Pelanggan..."/></h1>
+                    </div>
+                    <group>
+                        <group string="Kontak &amp; Tamu">
+                            <field name="customer_phone" widget="phone"/>
+                            <field name="number_of_people"/>
+                        </group>
+                        <group string="Waktu &amp; Lokasi">
+                            <field name="date_start"/>
+                            <field name="date_stop"/>
+                            <field name="table_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Catatan Tambahan">
+                            <field name="note" placeholder="Misal: Perayaan ulang tahun, alergi kacang..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

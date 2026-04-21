@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<record id="view_fnb_complaint_form" model="ir.ui.view">
+    <field name="name">fnb.complaint.form</field>
+    <field name="model">fnb.complaint</field>
+    <field name="arch" type="xml">
+        <form string="Detail Komplain">
+            <header>
+                <button name="action_investigate" string="Mulai Investigasi" type="object" class="oe_highlight" invisible="status != 'open'"/>
+                <button name="action_resolve" string="Tandai Selesai" type="object" class="oe_highlight" invisible="status != 'investigating'"/>
+                <field name="status" widget="statusbar" statusbar_visible="open,investigating,resolved"/>
+            </header>
+            
+            <sheet>
+                <widget name="web_ribbon" title="Selesai Ditangani" bg_color="bg-success" invisible="status != 'resolved'"/>
+                <div class="oe_title">
+                    <h1><field name="name" placeholder="Misal: Makanan Terlalu Asin"/></h1>
+                </div>
+                <group>
+                    <group string="Informasi Pelanggan">
+                        <field name="customer_name"/>
+                        <field name="severity_level" widget="radio"/>
+                    </group>
+                    <group string="Tindak Lanjut SOP">
+                        <field name="action_taken" placeholder="Catat kompensasi atau tindakan yang diberikan sesuai instruksi SOP di samping..."/>
+                    </group>
+                </group>
+            </sheet>
+
+            <div class="oe_chatter">
+                <field name="message_follower_ids" widget="mail_followers"/>
+                <field name="activity_ids" widget="mail_activity"/>
+                <field name="message_ids" widget="mail_thread"/>
+            </div>
+        </form>
+    </field>
+</record>
+</odoo>
