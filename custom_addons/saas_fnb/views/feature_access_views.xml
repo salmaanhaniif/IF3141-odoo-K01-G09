@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_fnb_feature_access_tree" model="ir.ui.view">
+        <field name="name">fnb.feature.access.tree</field>
+        <field name="model">fnb.feature.access</field>
+        <field name="arch" type="xml">
+            <tree string="Akses Fitur per Role" editable="bottom">
+                <field name="group_id"/>
+                <field name="access_inventory"/>
+                <field name="access_master_menu"/>
+                <field name="access_order"/>
+                <field name="access_reservation"/>
+                <field name="access_table"/>
+                <field name="access_complaint"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_fnb_feature_access_form" model="ir.ui.view">
+        <field name="name">fnb.feature.access.form</field>
+        <field name="model">fnb.feature.access</field>
+        <field name="arch" type="xml">
+            <form string="Konfigurasi Akses Fitur Role">
+                <header>
+                    <button name="action_apply_access" type="object" string="Terapkan Akses" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="group_id"/>
+                    </group>
+                    <group string="Akses Fitur UI" col="3">
+                        <field name="access_inventory"/>
+                        <field name="access_master_menu"/>
+                        <field name="access_order"/>
+                        <field name="access_reservation"/>
+                        <field name="access_table"/>
+                        <field name="access_complaint"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_fnb_feature_access" model="ir.actions.act_window">
+        <field name="name">Manajemen Akses Fitur</field>
+        <field name="res_model">fnb.feature.access</field>
+        <field name="view_mode">tree,form</field>
+        <field name="groups_id" eval="[(6, 0, [ref('saas_fnb.group_fnb_admin')])]"/>
+    </record>
+
+    <menuitem id="menu_fnb_feature_access"
+              name="Akses Fitur"
+              parent="menu_fnb_root"
+              action="action_fnb_feature_access"
+              sequence="90"
+              groups="saas_fnb.group_fnb_admin"/>
+</odoo>

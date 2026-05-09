@@ -8,6 +8,7 @@
                 <field name="name"/>
                 <field name="capacity"/>
                 <field name="location"/>
+                <field name="status"/>
                 <templates>
                     <t t-name="kanban-box">
                         <div t-attf-class="oe_kanban_global_click">
@@ -26,6 +27,11 @@
                                     <span t-if="record.location.raw_value == 'indoor'" class="badge rounded-pill text-bg-primary">Indoor</span>
                                     <span t-if="record.location.raw_value == 'outdoor'" class="badge rounded-pill text-bg-warning">Outdoor</span>
                                     <span t-if="record.location.raw_value == 'vip'" class="badge rounded-pill text-bg-danger">VIP Room</span>
+                                </div>
+                                <div class="mt-2">
+                                    <span t-if="record.status.raw_value == 'free'" class="badge rounded-pill text-bg-success">Free</span>
+                                    <span t-if="record.status.raw_value == 'reserved'" class="badge rounded-pill text-bg-warning">Reserved</span>
+                                    <span t-if="record.status.raw_value == 'used'" class="badge rounded-pill text-bg-danger">Used</span>
                                 </div>
                             </div>
                         </div>
@@ -48,6 +54,7 @@
                     <group>
                         <group>
                             <field name="capacity"/>
+                            <field name="status"/>
                         </group>
                         <group>
                             <field name="location" widget="radio" options="{'horizontal': true}"/>

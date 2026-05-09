@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
 {
     'name': "SaaS F&B Enterprise",
-    'summary': 'Solusi POS, Inventaris, dan CRM Terintegrasi',
+    'summary': 'Solusi POS, Inventaris, dan Komplain Terintegrasi',
     'description': 'Modul untuk menggantikan sistem lama dengan ekosistem POS, manajemen inventaris, dan manajemen komplain yang terintegrasi.',
     'sequence': -100,
     'author': "Kelompok IF3141",
@@ -9,6 +8,7 @@
     'version': '1.0',
     'depends': ['base', 'mail'],
     'data': [
+        'security/fnb_security.xml',
         'security/ir.model.access.csv',
         'data/sequence_data.xml',
         'data/seed_test_data.xml',
@@ -19,6 +19,9 @@
         'views/reservation_views.xml',
         'views/payment_views.xml',
         'views/table_views.xml',
+        'views/complaint_views.xml',
+        'views/feature_access_views.xml',
+        'data/feature_access_data.xml',
     ],
     'installable': True,
     'application': True,

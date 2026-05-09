@@ -27,6 +27,7 @@
                             <field name="stock_status" invisible="1"/> </group>
                         <group string="Informasi Tambahan">
                             <field name="category"/>
+                            <field name="currency_id" invisible="1"/>
                             <field name="cost_price" widget="monetary" options="{'currency_field': 'currency_id'}"/>
                         </group>
                     </group>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_fnb_complaint_tree" model="ir.ui.view">
+        <field name="name">fnb.complaint.tree</field>
+        <field name="model">fnb.complaint</field>
+        <field name="arch" type="xml">
+            <tree string="Daftar Komplain"
+                  decoration-danger="complaint_level == 'high'"
+                  decoration-warning="complaint_level == 'medium'"
+                  decoration-info="complaint_level == 'low'">
+                <field name="name"/>
+                <field name="complaint_date"/>
+                <field name="customer_name"/>
+                <field name="complaint_category"/>
+                <field name="complaint_level" widget="badge"
+                       decoration-danger="complaint_level == 'high'"
+                       decoration-warning="complaint_level == 'medium'"
+                       decoration-info="complaint_level == 'low'"/>
+                <field name="recommended_action"/>
+                <field name="selected_action"/>
+                <field name="action_status" widget="badge"
+                       decoration-success="action_status == 'done'"
+                       decoration-warning="action_status == 'pending'"/>
+                <field name="status" widget="badge"
+                       decoration-info="status == 'new'"
+                       decoration-warning="status == 'handling'"
+                      decoration-success="status == 'resolved'"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_fnb_complaint_form" model="ir.ui.view">
+        <field name="name">fnb.complaint.form</field>
+        <field name="model">fnb.complaint</field>
+        <field name="arch" type="xml">
+            <form string="Manajemen Komplain">
+                <header>
+                    <button name="action_start_handling" string="Proses" type="object" class="oe_highlight" invisible="status != 'new'"/>
+                    <button name="action_mark_resolved" string="Selesaikan" type="object" class="oe_highlight" invisible="status != 'handling'"/>
+                    <button name="action_execute_selected_action" string="Eksekusi Aksi" type="object" class="btn-success" invisible="status != 'handling' or action_status == 'done'"/>
+                    <field name="status" widget="statusbar" statusbar_visible="new,handling,resolved" readonly="1"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Aksi Sudah Dilakukan" bg_color="bg-success" invisible="action_status != 'done'"/>
+
+                    <div class="oe_title">
+                        <label for="name" string="Nomor Komplain"/>
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+
+                    <group>
+                        <group string="Pelanggan">
+                            <field name="customer_name" placeholder="Nama pelanggan..."/>
+                            <field name="customer_phone" widget="phone"/>
+                            <field name="complaint_date"/>
+                        </group>
+                        <group string="Tingkat &amp; Kategori">
+                            <field name="complaint_level"/>
+                            <field name="complaint_category"/>
+                        </group>
+                    </group>
+
+                    <group string="SOP Penanganan">
+                        <field name="recommended_action" readonly="1"/>
+                        <field name="selected_action" readonly="status == 'resolved'"/>
+                        <field name="action_status" readonly="1"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Kronologi Komplain">
+                            <field name="chronology" placeholder="Tuliskan kronologi komplain pelanggan..." required="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
