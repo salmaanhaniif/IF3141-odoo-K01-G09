@@ -354,6 +354,7 @@ class FnbFeatureAccess(models.Model):
         'res.groups',
         string='Role',
         required=True,
+        ondelete='cascade',
     )
     access_inventory = fields.Boolean(string='Akses Inventaris')
     access_master_menu = fields.Boolean(string='Akses Master Menu')

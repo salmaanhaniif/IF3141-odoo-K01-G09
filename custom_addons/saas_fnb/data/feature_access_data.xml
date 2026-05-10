@@ -1,39 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo noupdate="1">
     <record id="feature_access_pelanggan" model="fnb.feature.access">
-        <field name="group_id" ref="saas_fnb.group_fnb_pelanggan"/>
-        <field name="access_order">True</field>
-        <field name="access_reservation">True</field>
-        <field name="access_complaint">True</field>
-    </record>
-
-    <record id="feature_access_manajerial" model="fnb.feature.access">
-        <field name="group_id" ref="saas_fnb.group_fnb_manajerial"/>
-        <field name="access_master_menu">True</field>
-    </record>
-
-    <record id="feature_access_pelayanan" model="fnb.feature.access">
-        <field name="group_id" ref="saas_fnb.group_fnb_pelayanan"/>
+        <field name="group_id" ref="saas_fnb.group_fnb_pelayan_kasir"/>
         <field name="access_order">True</field>
         <field name="access_reservation">True</field>
         <field name="access_table">True</field>
     </record>
 
+    <record id="feature_access_manajerial" model="fnb.feature.access">
+        <field name="group_id" ref="saas_fnb.group_fnb_manajer"/>
+        <field name="access_master_menu">True</field>
+        <field name="access_complaint">True</field>
+    </record>
+
+    <record id="feature_access_pelayanan" model="fnb.feature.access">
+        <field name="group_id" ref="saas_fnb.group_fnb_staf_marketing"/>
+        <field name="access_reservation">True</field>
+        <field name="access_complaint">True</field>
+    </record>
+
     <record id="feature_access_produksi" model="fnb.feature.access">
-        <field name="group_id" ref="saas_fnb.group_fnb_produksi"/>
-        <field name="access_inventory">True</field>
+        <field name="group_id" ref="saas_fnb.group_fnb_staf_dapur"/>
         <field name="access_order">True</field>
     </record>
 
     <record id="feature_access_pendukung" model="fnb.feature.access">
-        <field name="group_id" ref="saas_fnb.group_fnb_pendukung"/>
+        <field name="group_id" ref="saas_fnb.group_fnb_staf_gudang"/>
         <field name="access_inventory">True</field>
-        <field name="access_master_menu">True</field>
-        <field name="access_reservation">True</field>
-    </record>
-
-    <record id="feature_access_vendor" model="fnb.feature.access">
-        <field name="group_id" ref="saas_fnb.group_fnb_vendor"/>
-        <field name="access_order">True</field>
     </record>
 </odoo>
