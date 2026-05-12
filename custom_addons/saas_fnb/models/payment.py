@@ -18,7 +18,7 @@ class FnbPayment(models.Model):
         ('e_wallet', 'E-Wallet')
     ], string="Metode Pembayaran", required=True, default='cash')
     reference_number = fields.Char(string="Nomor Referensi Transaksi (Opsional)")
-
+    @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
             if vals.get('name', 'Baru') == 'Baru':
