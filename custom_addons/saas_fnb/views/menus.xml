@@ -11,7 +11,7 @@
         <field name="name">Nota Pemesanan</field>
         <field name="res_model">fnb.order</field>
         <field name="view_mode">tree,kanban,form</field>
-        <field name="groups_id" eval="[(6, 0, [ref('saas_fnb.group_fnb_pelanggan'), ref('saas_fnb.group_fnb_pelayanan'), ref('saas_fnb.group_fnb_produksi'), ref('saas_fnb.group_fnb_vendor'), ref('saas_fnb.group_fnb_admin')])]"/>
+        <field name="groups_id" eval="[(6, 0, [ref('saas_fnb.group_fnb_pelanggan'), ref('saas_fnb.group_fnb_pelayanan'), ref('saas_fnb.group_fnb_produksi'), ref('saas_fnb.group_fnb_admin')])]"/>
     </record>
 
     <record id="action_fnb_menu" model="ir.actions.act_window">
@@ -43,13 +43,13 @@
     </record>
 
     <menuitem id="menu_fnb_root" name="SaaS F&amp;B" sequence="10"
-              groups="saas_fnb.group_fnb_pelanggan,saas_fnb.group_fnb_manajerial,saas_fnb.group_fnb_pelayanan,saas_fnb.group_fnb_produksi,saas_fnb.group_fnb_pendukung,saas_fnb.group_fnb_vendor,saas_fnb.group_fnb_admin"/>
+              groups="saas_fnb.group_fnb_pelanggan,saas_fnb.group_fnb_manajerial,saas_fnb.group_fnb_pelayanan,saas_fnb.group_fnb_produksi,saas_fnb.group_fnb_pendukung,saas_fnb.group_fnb_admin"/>
     <menuitem id="menu_fnb_inventory" name="Inventaris" parent="menu_fnb_root" action="action_fnb_inventory" sequence="10"
               groups="saas_fnb.group_fnb_produksi,saas_fnb.group_fnb_pendukung,saas_fnb.group_fnb_admin"/>
     <menuitem id="menu_fnb_master_menu" name="Master Menu" parent="menu_fnb_root" action="action_fnb_menu" sequence="15"
               groups="saas_fnb.group_fnb_manajerial,saas_fnb.group_fnb_pendukung,saas_fnb.group_fnb_admin"/>
     <menuitem id="menu_fnb_order" name="Pemesanan (POS)" parent="menu_fnb_root" action="action_fnb_order" sequence="20"
-              groups="saas_fnb.group_fnb_pelanggan,saas_fnb.group_fnb_pelayanan,saas_fnb.group_fnb_produksi,saas_fnb.group_fnb_vendor,saas_fnb.group_fnb_admin"/>
+              groups="saas_fnb.group_fnb_pelanggan,saas_fnb.group_fnb_pelayanan,saas_fnb.group_fnb_produksi,saas_fnb.group_fnb_admin"/>
     <menuitem id="menu_fnb_reservation" name="Reservasi" parent="menu_fnb_root" action="action_fnb_reservation" sequence="25"
               groups="saas_fnb.group_fnb_pelanggan,saas_fnb.group_fnb_pelayanan,saas_fnb.group_fnb_pendukung,saas_fnb.group_fnb_admin"/>
     <menuitem id="menu_fnb_table" name="Konfigurasi Meja" parent="menu_fnb_root" action="action_fnb_table" sequence="30"

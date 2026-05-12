@@ -10,15 +10,12 @@ access_fnb_recipe_line_pendukung,fnb.recipe.line pendukung,model_fnb_recipe_line
 access_fnb_recipe_line_admin,fnb.recipe.line admin,model_fnb_recipe_line,saas_fnb.group_fnb_admin,1,1,1,1
 access_fnb_order_pelayanan,fnb.order pelayanan,model_fnb_order,saas_fnb.group_fnb_pelayanan,1,1,1,1
 access_fnb_order_produksi,fnb.order produksi,model_fnb_order,saas_fnb.group_fnb_produksi,1,1,1,1
-access_fnb_order_vendor,fnb.order vendor,model_fnb_order,saas_fnb.group_fnb_vendor,1,1,1,1
 access_fnb_order_admin,fnb.order admin,model_fnb_order,saas_fnb.group_fnb_admin,1,1,1,1
 access_fnb_order_line_pelayanan,fnb.order.line pelayanan,model_fnb_order_line,saas_fnb.group_fnb_pelayanan,1,1,1,1
 access_fnb_order_line_produksi,fnb.order.line produksi,model_fnb_order_line,saas_fnb.group_fnb_produksi,1,1,1,1
-access_fnb_order_line_vendor,fnb.order.line vendor,model_fnb_order_line,saas_fnb.group_fnb_vendor,1,1,1,1
 access_fnb_order_line_admin,fnb.order.line admin,model_fnb_order_line,saas_fnb.group_fnb_admin,1,1,1,1
 access_fnb_payment_pelayanan,fnb.payment pelayanan,model_fnb_payment,saas_fnb.group_fnb_pelayanan,1,1,1,1
 access_fnb_payment_produksi,fnb.payment produksi,model_fnb_payment,saas_fnb.group_fnb_produksi,1,1,1,1
-access_fnb_payment_vendor,fnb.payment vendor,model_fnb_payment,saas_fnb.group_fnb_vendor,1,1,1,1
 access_fnb_payment_admin,fnb.payment admin,model_fnb_payment,saas_fnb.group_fnb_admin,1,1,1,1
 access_fnb_reservation_pelanggan,fnb.reservation pelanggan,model_fnb_reservation,saas_fnb.group_fnb_pelanggan,1,1,1,1
 access_fnb_reservation_pelayanan,fnb.reservation pelayanan,model_fnb_reservation,saas_fnb.group_fnb_pelayanan,1,1,1,1
@@ -27,7 +24,6 @@ access_fnb_reservation_admin,fnb.reservation admin,model_fnb_reservation,saas_fn
 access_fnb_table_pelayanan,fnb.table pelayanan,model_fnb_table,saas_fnb.group_fnb_pelayanan,1,1,1,1
 access_fnb_table_produksi,fnb.table produksi,model_fnb_table,saas_fnb.group_fnb_produksi,1,1,1,1
 access_fnb_table_pendukung,fnb.table pendukung,model_fnb_table,saas_fnb.group_fnb_pendukung,1,1,1,1
-access_fnb_table_vendor,fnb.table vendor,model_fnb_table,saas_fnb.group_fnb_vendor,1,1,1,1
 access_fnb_table_admin,fnb.table admin,model_fnb_table,saas_fnb.group_fnb_admin,1,1,1,1
 access_fnb_complaint_admin,fnb.complaint admin,model_fnb_complaint,saas_fnb.group_fnb_admin,1,1,1,1
 access_fnb_feature_access_admin,fnb.feature.access admin,model_fnb_feature_access,saas_fnb.group_fnb_admin,1,1,1,1

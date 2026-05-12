@@ -32,8 +32,4 @@
         <field name="access_reservation">True</field>
     </record>
 
-    <record id="feature_access_vendor" model="fnb.feature.access">
-        <field name="group_id" ref="saas_fnb.group_fnb_vendor"/>
-        <field name="access_order">True</field>
-    </record>
 </odoo>
