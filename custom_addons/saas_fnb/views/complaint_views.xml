@@ -66,11 +66,14 @@
                         <field name="action_status" readonly="1"/>
                     </group>
 
-                    <notebook>
-                        <page string="Kronologi Komplain">
-                            <field name="chronology" placeholder="Tuliskan kronologi komplain pelanggan..." required="1"/>
-                        </page>
-                    </notebook>
+                    <group>
+                        <group string="Kronologi Komplain">
+                            <field name="description" nolabel="1" placeholder="Tuliskan kronologi komplain pelanggan..."/>
+                        </group>
+                        <group string="Detail Komplain">
+                            <field name="chronology" nolabel="1" placeholder="Tuliskan detail/penjelasan komplain..."/>
+                        </group>
+                    </group>
                 </sheet>
             </form>
         </field>

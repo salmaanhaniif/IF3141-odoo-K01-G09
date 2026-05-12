@@ -5,85 +5,93 @@
         <field name="sequence">25</field>
     </record>
 
-    <record id="group_fnb_pelanggan" model="res.groups">
-        <field name="name">Pelanggan</field>
+    <!-- Pelayan/Kasir: CRUD pemesanan, reservasi, konfig meja, komplain -->
+    <record id="group_fnb_pelayan" model="res.groups">
+        <field name="name">Pelayan/Kasir</field>
         <field name="category_id" ref="saas_fnb.module_category_fnb"/>
         <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
     </record>
 
-    <record id="group_fnb_manajerial" model="res.groups">
-        <field name="name">Tim Manajerial</field>
+    <!-- Staf Dapur: Read-only pemesanan, Read-only master menu -->
+    <record id="group_fnb_dapur" model="res.groups">
+        <field name="name">Staf Dapur</field>
         <field name="category_id" ref="saas_fnb.module_category_fnb"/>
         <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
     </record>
 
-    <record id="group_fnb_pelayanan" model="res.groups">
-        <field name="name">Tim Pelayanan</field>
+    <!-- Staf Gudang: CRUD inventaris bahan baku -->
+    <record id="group_fnb_gudang" model="res.groups">
+        <field name="name">Staf Gudang</field>
         <field name="category_id" ref="saas_fnb.module_category_fnb"/>
         <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
     </record>
 
-    <record id="group_fnb_produksi" model="res.groups">
-        <field name="name">Tim Produksi</field>
+    <!-- Staf Marketing: CRUD reservasi, CRUD pelanggan -->
+    <record id="group_fnb_marketing" model="res.groups">
+        <field name="name">Staf Marketing</field>
         <field name="category_id" ref="saas_fnb.module_category_fnb"/>
         <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
     </record>
 
-    <record id="group_fnb_pendukung" model="res.groups">
-        <field name="name">Tim Pendukung</field>
+    <!-- Manajer: Read-only pemesanan, CRUD komplain, CRUD master menu -->
+    <record id="group_fnb_manajer" model="res.groups">
+        <field name="name">Manajer</field>
         <field name="category_id" ref="saas_fnb.module_category_fnb"/>
         <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
     </record>
 
+    <!-- Admin F&B -->
     <record id="group_fnb_admin" model="res.groups">
         <field name="name">Admin F&amp;B</field>
         <field name="category_id" ref="saas_fnb.module_category_fnb"/>
         <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
     </record>
 
+    <!-- Assign admin group to base admin user -->
     <record id="base.user_admin" model="res.users">
         <field name="groups_id" eval="[(4, ref('saas_fnb.group_fnb_admin'))]"/>
     </record>
 
-    <record id="user_fnb_pelanggan" model="res.users">
-        <field name="name">User Pelanggan</field>
-        <field name="login">pelanggan</field>
-        <field name="password">pelanggan</field>
-        <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('saas_fnb.group_fnb_pelanggan')])]"/>
+    <!-- Demo Users -->
+    <record id="user_fnb_pelayan" model="res.users">
+        <field name="name">User Pelayan/Kasir</field>
+        <field name="login">pelayan</field>
+        <field name="password">pelayan123</field>
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('saas_fnb.group_fnb_pelayan')])]"/>
     </record>
 
-    <record id="user_fnb_manajerial" model="res.users">
-        <field name="name">User Manajerial</field>
-        <field name="login">manajerial</field>
-        <field name="password">manajerial</field>
-        <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('saas_fnb.group_fnb_manajerial')])]"/>
+    <record id="user_fnb_dapur" model="res.users">
+        <field name="name">User Staf Dapur</field>
+        <field name="login">dapur</field>
+        <field name="password">dapur123</field>
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('saas_fnb.group_fnb_dapur')])]"/>
     </record>
 
-    <record id="user_fnb_pelayanan" model="res.users">
-        <field name="name">User Pelayanan</field>
-        <field name="login">pelayanan</field>
-        <field name="password">pelayanan</field>
-        <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('saas_fnb.group_fnb_pelayanan')])]"/>
+    <record id="user_fnb_gudang" model="res.users">
+        <field name="name">User Staf Gudang</field>
+        <field name="login">gudang</field>
+        <field name="password">gudang123</field>
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('saas_fnb.group_fnb_gudang')])]"/>
     </record>
 
-    <record id="user_fnb_produksi" model="res.users">
-        <field name="name">User Produksi</field>
-        <field name="login">produksi</field>
-        <field name="password">produksi</field>
-        <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('saas_fnb.group_fnb_produksi')])]"/>
+    <record id="user_fnb_marketing" model="res.users">
+        <field name="name">User Staf Marketing</field>
+        <field name="login">marketing</field>
+        <field name="password">marketing123</field>
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('saas_fnb.group_fnb_marketing')])]"/>
     </record>
 
-    <record id="user_fnb_pendukung" model="res.users">
-        <field name="name">User Pendukung</field>
-        <field name="login">pendukung</field>
-        <field name="password">pendukung</field>
-        <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('saas_fnb.group_fnb_pendukung')])]"/>
+    <record id="user_fnb_manajer" model="res.users">
+        <field name="name">User Manajer</field>
+        <field name="login">manajer</field>
+        <field name="password">manajer123</field>
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('saas_fnb.group_fnb_manajer')])]"/>
     </record>
 
     <record id="user_fnb_admin" model="res.users">
         <field name="name">User Admin F&amp;B</field>
         <field name="login">admin_fnb</field>
-        <field name="password">admin_fnb</field>
+        <field name="password">admin_fnb123</field>
         <field name="groups_id" eval="[(6, 0, [ref('base.group_user'), ref('saas_fnb.group_fnb_admin')])]"/>
     </record>
 </odoo>

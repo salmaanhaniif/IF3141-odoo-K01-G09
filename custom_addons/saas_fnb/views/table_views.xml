@@ -64,4 +64,29 @@
             </form>
         </field>
     </record>
+
+    <!-- Read-only view for Admin F&B -->
+    <record id="view_fnb_table_form_readonly_admin" model="ir.ui.view">
+        <field name="name">fnb.table.form.readonly.admin</field>
+        <field name="model">fnb.table</field>
+        <field name="arch" type="xml">
+            <form string="Data Meja (Read-only)" edit="false">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" string="Nomor/Nama Meja"/>
+                        <h1><field name="name" placeholder="Misal: Meja 01 atau VIP-A" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="capacity" readonly="1"/>
+                            <field name="status" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="location" widget="radio" options="{'horizontal': true}" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 </odoo>

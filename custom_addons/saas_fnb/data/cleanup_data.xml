@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!--
+        Cleanup file: removes records that reference deleted groups/roles.
+        This file intentionally has NO noupdate="1" so it always runs on upgrade.
+        Add entries here whenever a role is removed from fnb_security.xml.
+    -->
+
+    <!-- Remove feature access records for deleted roles -->
+    <delete model="fnb.feature.access" search="[('group_id.name', '=', 'Vendor')]"/>
+    <delete model="fnb.feature.access" search="[('group_id.name', '=', 'Pelanggan')]"/>
+    <delete model="fnb.feature.access" search="[('group_id.name', '=', 'Tim Manajerial')]"/>
+    <delete model="fnb.feature.access" search="[('group_id.name', '=', 'Tim Pelayanan')]"/>
+    <delete model="fnb.feature.access" search="[('group_id.name', '=', 'Tim Produksi')]"/>
+    <delete model="fnb.feature.access" search="[('group_id.name', '=', 'Tim Pendukung')]"/>
+
+    <!-- Remove demo users for deleted roles -->
+    <delete model="res.users" search="[('login', '=', 'vendor')]"/>
+    <delete model="res.users" search="[('login', '=', 'pelanggan')]"/>
+    <delete model="res.users" search="[('login', '=', 'manajerial')]"/>
+    <delete model="res.users" search="[('login', '=', 'pelayanan')]"/>
+    <delete model="res.users" search="[('login', '=', 'produksi')]"/>
+    <delete model="res.users" search="[('login', '=', 'pendukung')]"/>
+
+</odoo>
