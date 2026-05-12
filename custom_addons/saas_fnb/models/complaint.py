@@ -23,8 +23,8 @@ class FnbComplaint(models.Model):
         ('delay', 'Keterlambatan Pesanan'),
         ('other', 'Lainnya')
     ], string="Kategori", required=True, default='service')
-    chronology = fields.Text(string="Detail Komplain")
-    description = fields.Text(string="Kronologi Komplain", required=True)
+    chronology = fields.Text(string="Kronologi Komplain")
+    description = fields.Text(string="Detail Komplain", required=True)
 
     status = fields.Selection([
         ('new', 'Baru'),
@@ -47,14 +47,19 @@ class FnbComplaint(models.Model):
     ], string="Aksi yang Dipilih")
 
     action_status = fields.Selection([
-        ('pending', 'Menunggu'),
-        ('done', 'Selesai')
+        ('pending', 'Belum Dilakukan'),
+        ('done', 'Sudah Dilakukan')
     ], string="Status Aksi", default='pending', required=True)
 
+    @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
-            if vals.get('name', 'Baru') == 'Baru':
+            if not vals.get('name') or vals.get('name') == 'Baru':
                 vals['name'] = self.env['ir.sequence'].next_by_code('fnb.complaint') or 'Baru'
+            vals.setdefault('status', 'new')
+            vals.setdefault('action_status', 'pending')
+            if not vals.get('chronology'):
+                raise ValidationError("Kronologi komplain wajib diisi sebelum menyimpan.")
         return super().create(vals_list)
 
     @api.depends('complaint_level')
@@ -69,15 +74,15 @@ class FnbComplaint(models.Model):
 
     @api.onchange('complaint_level')
     def _onchange_complaint_level(self):
-        if self.complaint_level:
-            self._compute_recommended_action()
-            self.selected_action = self.recommended_action
+        for rec in self:
+            if not rec.selected_action:
+                rec.selected_action = rec.recommended_action
 
     def action_start_handling(self):
         """Start handling complaint"""
         for rec in self:
             if rec.status != 'new':
-                raise ValidationError("Komplain hanya bisa diproses saat status Baru.")
+                raise ValidationError("Komplain hanya bisa diproses dari status Baru.")
             rec.status = 'handling'
 
     def action_mark_resolved(self):
@@ -85,8 +90,6 @@ class FnbComplaint(models.Model):
         for rec in self:
             if rec.status != 'handling':
                 raise ValidationError("Komplain hanya bisa diselesaikan saat status Diproses.")
-            if not rec.chronology:
-                raise ValidationError("Detail Komplain harus diisi sebelum menyelesaikan komplain.")
             rec.status = 'resolved'
 
     def action_execute_selected_action(self):
@@ -94,4 +97,8 @@ class FnbComplaint(models.Model):
         for rec in self:
             if rec.status != 'handling':
                 raise ValidationError("Aksi penanganan hanya bisa dijalankan saat status Diproses.")
+            if not rec.selected_action:
+                raise ValidationError("Pilih aksi terlebih dahulu sebelum mengeksekusi.")
+
             rec.action_status = 'done'
+        return True
