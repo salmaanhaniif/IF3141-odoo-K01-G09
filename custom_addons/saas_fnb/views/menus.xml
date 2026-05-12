@@ -56,4 +56,6 @@
               groups="saas_fnb.group_fnb_pelayan,saas_fnb.group_fnb_admin"/>
     <menuitem id="menu_fnb_complaint" name="Komplain" parent="menu_fnb_root" action="action_fnb_complaint" sequence="35"
               groups="saas_fnb.group_fnb_pelayan,saas_fnb.group_fnb_manajer,saas_fnb.group_fnb_admin"/>
+    <menuitem id="menu_fnb_feature_access" name="Akses Fitur" parent="menu_fnb_root" action="action_fnb_feature_access"
+              sequence="90" groups="saas_fnb.group_fnb_admin"/>
 </odoo>

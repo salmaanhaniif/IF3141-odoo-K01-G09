@@ -63,14 +63,31 @@ class FnbOrder(models.Model):
     def action_done(self):
         """Mark order as done"""
         for order in self:
-            if order.status != 'kitchen':
-                raise ValidationError("Pesanan harus dalam status Dapur untuk diselesaikan.")
-            if order.payment_status != 'paid':
-                raise ValidationError("Pesanan harus sudah dibayar sebelum diselesaikan.")
+            # Pengecekan (Validasi)
+            for line in order.order_line_ids:
+                menu = line.menu_id
+                qty_ordered = line.quantity
+                
+                for recipe in menu.recipe_line_ids:
+                    inventory_item = recipe.inventory_id
+                    total_needed = recipe.quantity * qty_ordered
+                    
+                    # Jika stok tidak mencukupi, gagalkan proses dan munculkan error
+                    if inventory_item.quantity < total_needed:
+                        raise ValidationError(
+                            f"Stok tidak mencukupi untuk menu '{menu.name}'!\n"
+                            f"Bahan baku '{inventory_item.name}' hanya tersedia {inventory_item.quantity} {inventory_item.uom}, "
+                            f"sedangkan yang dibutuhkan adalah {total_needed} {inventory_item.uom}."
+                        )
+
+            # Pemotongan Stok (Hanya dijalankan jika TAHAP 1 lolos semua)
+            for line in order.order_line_ids:
+                for recipe in line.menu_id.recipe_line_ids:
+                    recipe.inventory_id.quantity -= (recipe.quantity * line.quantity)
+                    
             order.status = 'done'
             if order.table_id:
                 order.table_id.status = 'free'
-
 
 class FnbOrderLine(models.Model):
     _name = 'fnb.order.line'
